@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown Menu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            position: relative;
+        }
+        a {
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            background-color: #f4f4f4;
+            color: #333;
+            border: 1px solid #ccc;
+        }
+        a:hover {
+            background-color: #ddd;
+        }
+        
+        ul ul {
+            display: none;
+        }
+
+        li.active > ul {
+            display: block;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const items = document.querySelectorAll('#menu li, #menu1 li');
+
+            items.forEach(item => {
+                item.addEventListener('click', function(event) {
+                    event.stopPropagation();
+                    this.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <ul id="menu">
+        <li><a href="#">Раздел 1</a>
+            <ul>
+                <li><a href="#">Пункт 1.1</a>
+                    <ul>
+                        <li><a href="#">Подпункт 1.1.1</a></li>
+                        <li><a href="#">Подпункт 1.1.2</a></li>
+                        <li><a href="#">Подпункт 1.1.3</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <ul id="menu1">
+        <li><a href="#">Раздел 2</a>
+            <ul>
+                <li><a href="#">Пункт 2.1</a>
+                    <ul>
+                        <li><a href="#">Подпункт 2.1.1</a></li>
+                        <li><a href="#">Подпункт 2.1.2</a></li>
+                        <li><a href="#">Подпункт 2.1.3</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+</body>
+</html>
